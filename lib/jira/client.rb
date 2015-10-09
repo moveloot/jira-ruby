@@ -129,6 +129,22 @@ module JIRA
       JIRA::Resource::RapidViewFactory.new(self)
     end
 
+    def Board
+      JIRA::Resource::BoardFactory.new(self)
+    end
+
+    def Sprint
+      JIRA::Resource::SprintFactory.new(self)
+    end
+
+    def Epic
+      JIRA::Resource::EpicFactory.new(self)
+    end
+
+    def RemoteIssueLink
+      JIRA::Resource::RemoteIssueLinkFactory.new(self)
+    end
+
     # HTTP methods without a body
     def delete(path, headers = {})
       request(:delete, path, nil, merge_default_headers(headers))
